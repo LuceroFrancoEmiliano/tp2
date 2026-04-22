@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+
 public class Universidad {
     private String nombre;
     private String direccion;
     private Estudiante[] estudiantes;
+    private ArrayList<MiembroUniversidad> miembros;
 
     public Universidad(String nombre, String direccion, Estudiante[] estudiantes){
         setNombre(nombre);
@@ -31,6 +34,35 @@ public class Universidad {
     }
     public void setEstudiantes(Estudiante[] estudiantes) {
         this.estudiantes = estudiantes;
+    }
+
+    public void agregarMiembro(MiembroUniversidad miembro){
+        if (miembros == null) {
+            miembros = new ArrayList<>();
+        }
+        miembros.add(miembro);
+
+    }
+    public void mostrarMiembros(){
+        if(miembros != null){
+            for(int i=0; i<miembros.size(); i++){
+                System.out.println(miembros.get(i).obtenerInformacionCompleta());
+            }
+
+        }
+
+    }
+
+    public void buscarPorRol(String rol){
+        if(miembros != null){
+            for(int i=0; i<miembros.size(); i++){
+                if(miembros.get(i).obtenerRol().equalsIgnoreCase(rol)){
+                    System.out.println(miembros.get(i).obtenerInformacionCompleta());
+                }
+            }
+        } else{
+            System.out.println("No hay miembros registrados en la universidad.");
+        }
     }
 
     public String toString() {

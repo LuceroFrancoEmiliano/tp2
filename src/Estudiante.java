@@ -1,15 +1,13 @@
-public class Estudiante extends Persona {
+public class Estudiante extends Persona implements MiembroUniversidad{
 
     private String carrera;
     private double promedio;
     private Materia[] materias;
     private int contadorMaterias;
-
     
-
     //CONSTRUCTOR CON PARAMETROS
-    public Estudiante(String nombre, String apellido, int edad, String carrera) {
-        super(nombre, apellido, edad, carrera);
+    public Estudiante(String nombre, String apellido, int edad, String documento, String carrera) {
+        super(nombre, apellido, edad, documento);
         setEdad(edad);
         this.carrera = carrera;
         this.materias = new Materia[10]; 
@@ -42,11 +40,10 @@ public class Estudiante extends Persona {
         } else {
             System.out.println("Límite de materias alcanzado.");
         }
-    }   
+    }  
 
     public double calcularPromedio() {
         if (materias == null || materias.length == 0) return 0;
-
         double suma = 0;
         int materiasCargadas = 0;
 
@@ -56,7 +53,6 @@ public class Estudiante extends Persona {
                 materiasCargadas++;
             }
         }
-
         return (materiasCargadas == 0) ? 0 : suma / materiasCargadas;   
     }
 
@@ -73,6 +69,13 @@ public class Estudiante extends Persona {
 
     public String toString() {
         return "Estudiante: " + getNombre() + " " + getApellido() + ", Edad: " + getEdad() + ", Carrera: " + carrera + ", Promedio: " + promedio;
+    }
+
+    public String obtenerRol() {
+        return "Estudiante";
+    }
+    public String obtenerInformacionCompleta() {
+        return toString();
     }
 
 }

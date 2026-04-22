@@ -56,9 +56,4 @@ public class Materia {
     }
 
     
-
-
-
-
-
 }

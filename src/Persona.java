@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Persona{
     private String nombre;
     private String apellido;
@@ -43,6 +45,10 @@ public class Persona{
         this.documento = documento;
     }
 
+    public int hashCode(){
+        return Objects.hash(documento);
+    }
+    
     public String toString() {
         return "Persona: " + nombre + " " + apellido + ", Edad: " + edad + ", Documento: " + documento;
     }

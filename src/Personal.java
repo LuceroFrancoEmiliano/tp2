@@ -1,4 +1,4 @@
-public class Personal extends Persona {
+public class Personal extends Persona implements MiembroUniversidad {
     private String departamento;
     private String puesto;
     private java.time.LocalDate fechaIngreso;
@@ -31,6 +31,13 @@ public class Personal extends Persona {
 
     public String toString() {
         return "Personal: " + getNombre() + " " + getApellido() + ", Departamento: " + departamento + ", Puesto: " + puesto + ", Fecha de Ingreso: " + fechaIngreso;
+    }
+
+    public String obtenerRol() {
+        return "Personal";
+    }
+    public String obtenerInformacionCompleta() {
+        return toString();
     }
 
 }   

@@ -22,14 +22,19 @@ public class Carrera {
 
     public int getCantidadAlumnos() {
         return cantidadAlumnos;
-    }
+    }   
 
     public void setCantidadAlumnos(int cantidadAlumnos) {
         this.cantidadAlumnos = cantidadAlumnos;
     }
 
-    // AGREGAR ESTUDIANTE
-            public void agregarEstudiante(Estudiante estudiante) {
+    public void agregarEstudiante(Estudiante estudiante) {
+        for(int i=0; i<contador; i++){
+            if(estudiantes[i].getDocumento().equals(estudiante.getDocumento())){
+                System.out.println("El estudiante con documento " + estudiante.getDocumento() + " ya está registrado.");
+                return;
+            }
+        }
         if (contador < estudiantes.length) {
             estudiantes[contador] = estudiante;
             contador++;
@@ -40,7 +45,7 @@ public class Carrera {
 
     public void mostrarEstudiantes() {
         for (int i = 0; i < contador; i++) {
-            System.out.println(estudiantes[i].getNombre() + " " + estudiantes[i].getApellido());
+            System.out.println("Estudiante: " +estudiantes[i].getDocumento() + " - " + estudiantes[i].getNombre() + " " + estudiantes[i].getApellido());
         }
     }
 
@@ -52,7 +57,6 @@ public class Carrera {
         }
         return null;
     }
-
 
     public Estudiante[] getEstudiantes() { return estudiantes; }
     public int getContador() { return contador; }

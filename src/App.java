@@ -16,14 +16,16 @@ public class App {
             System.out.println("6. Salir");
             System.out.print("Seleccione: ");
             opcion = leer.nextInt();
-            leer.nextLine(); 
+            leer.nextLine();  //limpia el buffer
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Nombre: "); String n = leer.nextLine();
-                    System.out.print("Apellido: "); String a = leer.nextLine();
-                    System.out.print("Edad: "); int e = leer.nextInt();
-                    ingenieria.agregarEstudiante(new Estudiante(n, a, e, ingenieria.getNombre()));
+                    System.out.print("Nombre: "); String nombre = leer.nextLine();
+                    System.out.print("Apellido: "); String apellido = leer.nextLine();
+                    System.out.print("Edad: "); int edad = leer.nextInt();
+                    leer.nextLine(); // Limpiar buffer
+                    System.out.print("Documento: "); String documento = leer.nextLine(); // Pedir documento
+                    ingenieria.agregarEstudiante(new Estudiante(nombre, apellido, edad, documento, ingenieria.getNombre()));
                     break;
                 case 2:
                     ingenieria.mostrarEstudiantes();
@@ -64,9 +66,8 @@ public class App {
                     break;
                 default:
                     System.out.println("Opción no válida. Intente nuevamente.");
-
             }
-        } while (opcion != 5);
+        } while (opcion != 6);
         leer.close();
     }
 }

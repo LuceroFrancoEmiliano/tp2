@@ -1,4 +1,4 @@
-public class Profesor extends Persona {
+public class Profesor extends Persona implements MiembroUniversidad {
     private String especialidad;
     private int añosDeExperiencia;
     private int materiasAsignadas;
@@ -34,7 +34,7 @@ public class Profesor extends Persona {
             this.materias[materiasAsignadas] = materia;
             materiasAsignadas++;
         } else {
-            System.out.println("Límite de materias asignadas alcanzado.");
+            System.out.println("Limite de materias asignadas alcanzado.");
         }
     }
 
@@ -42,4 +42,10 @@ public class Profesor extends Persona {
         return "Profesor: " + getNombre() + " " + getApellido() + ", Especialidad: " + especialidad + ", Años de Experiencia: " + añosDeExperiencia;
     }
     
+    public String obtenerRol() {
+        return "Profesor";
+    }
+    public String obtenerInformacionCompleta() {
+        return toString();
+    }
 }
