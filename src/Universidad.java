@@ -33,4 +33,8 @@ public class Universidad {
         this.estudiantes = estudiantes;
     }
 
-}
+    public String toString() {
+        return "Universidad: " + nombre + ", Dirección: " + direccion + ", Cantidad de Estudiantes: " + estudiantes.length;
+    }
+
+}   

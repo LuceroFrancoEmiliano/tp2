@@ -3,6 +3,7 @@ public class Materia {
     private String codigo;
     private int creditos;
     private double calificacion;
+    private Profesor profesor;
 
     public Materia(String nombre, String codigo, int creditos, double calificacion) {
         setNombre(nombre);
@@ -43,8 +44,18 @@ public class Materia {
         this.calificacion = calificacion;
     }
 
+    public Profesor getProfesor(){
+        return profesor;
+    }
+    public void setProfesor(Profesor profesor){
+        this.profesor = profesor;
+    }
 
+    public String toString() {
+        return "Materia: " + nombre + " (Código: " + codigo + ", Créditos: " + creditos + ", Calificación: " + calificacion + ")";
+    }
 
+    
 
 
 

@@ -56,4 +56,8 @@ public class Carrera {
 
     public Estudiante[] getEstudiantes() { return estudiantes; }
     public int getContador() { return contador; }
+
+    public String toString() {
+        return "Carrera: " + nombre + ", Cantidad de Alumnos: " + cantidadAlumnos;
+    }
 }
