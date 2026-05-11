@@ -13,8 +13,8 @@ public class Estudiante extends Persona implements MiembroUniversidad{
         this.materias = new Materia[10]; 
         this.contadorMaterias = 0;
     }
-    
-    //CARRERA
+
+    //CARRER
     public String getCarrera() {
         return carrera;
     }
@@ -22,7 +22,10 @@ public class Estudiante extends Persona implements MiembroUniversidad{
             this.carrera = carrera;
     }
 
-    //PROMEDIO
+    //PROMEDIO}
+
+
+    //aa
     public double getPromedio() {
         return promedio;
     }
