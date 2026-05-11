@@ -9,6 +9,7 @@ public class Profesor extends Persona implements MiembroUniversidad {
         this.especialidad = especialidad;
         this.añosDeExperiencia = añosDeExperiencia;
         this.materiasAsignadas = 0;
+        this.materias = new Materia[10]; 
     }
 
     public String getEspecialidad() {
