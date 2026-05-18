@@ -1,72 +1,47 @@
 import java.util.ArrayList;
-
 public class Universidad {
     private String nombre;
     private String direccion;
     private Estudiante[] estudiantes;
-    private ArrayList<MiembroUniversidad> miembros;
+    private ArrayList<MiembroUniversidad> miembros = new ArrayList<>(); // ← inicializado acá
 
-    public Universidad(String nombre, String direccion, Estudiante[] estudiantes){
+    public Universidad(String nombre, String direccion, Estudiante[] estudiantes) {
         setNombre(nombre);
         setDireccion(direccion);
         setEstudiantes(estudiantes);
     }
 
-    //NOMBRE
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+
+    public String getDireccion() { return direccion; }
+    public void setDireccion(String direccion) { this.direccion = direccion; }
+
+    public Estudiante[] getEstudiantes() { return estudiantes; }
+    public void setEstudiantes(Estudiante[] estudiantes) { this.estudiantes = estudiantes; }
+
+    public void agregarMiembro(MiembroUniversidad miembro) {
+        miembros.add(miembro); // ← ya no necesita el if null
     }
 
-    //DIRECCION
-    public String getDireccion() {
-        return direccion;
-    }
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    //ESTUDIANTES
-    public Estudiante[] getEstudiantes() {
-        return estudiantes;
-    }
-    public void setEstudiantes(Estudiante[] estudiantes) {
-        this.estudiantes = estudiantes;
-    }
-
-    public void agregarMiembro(MiembroUniversidad miembro){
-        if (miembros == null) {
-            miembros = new ArrayList<>();
+    public void mostrarMiembros() {
+        for (int i = 0; i < miembros.size(); i++) {
+            System.out.println(miembros.get(i).obtenerInformacionCompleta());
         }
-        miembros.add(miembro);
-
     }
-    public void mostrarMiembros(){
-        if(miembros != null){
-            for(int i=0; i<miembros.size(); i++){
+
+    public void buscarPorRol(String rol) {
+        boolean encontrado = false;
+        for (int i = 0; i < miembros.size(); i++) {
+            if (miembros.get(i).obtenerRol().equalsIgnoreCase(rol)) {
                 System.out.println(miembros.get(i).obtenerInformacionCompleta());
+                encontrado = true;
             }
-
         }
-
-    }
-
-    public void buscarPorRol(String rol){
-        if(miembros != null){
-            for(int i=0; i<miembros.size(); i++){
-                if(miembros.get(i).obtenerRol().equalsIgnoreCase(rol)){
-                    System.out.println(miembros.get(i).obtenerInformacionCompleta());
-                }
-            }
-        } else{
-            System.out.println("No hay miembros registrados en la universidad.");
-        }
+        if (!encontrado) System.out.println("No hay miembros con ese rol.");
     }
 
     public String toString() {
         return "Universidad: " + nombre + ", Dirección: " + direccion + ", Cantidad de Estudiantes: " + estudiantes.length;
     }
-
-}   
+}
