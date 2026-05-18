@@ -1,6 +1,5 @@
 import java.util.Objects;
-
-public class Persona{
+public class Persona {
     private String nombre;
     private String apellido;
     private int edad;
@@ -12,45 +11,26 @@ public class Persona{
         this.edad = edad;
         this.documento = documento;
     }
+    public String getNombre() { return nombre; }
+    public String getApellido() { return apellido; }
+    public int getEdad() { return edad; }
+    public String getDocumento() { return documento; }
+    public void setNombre(String nombre) { if (!nombre.isEmpty()) this.nombre = nombre; }
+    public void setApellido(String apellido) { if (!apellido.isEmpty()) this.apellido = apellido; }
+    public void setEdad(int edad) { if (edad >= 16) this.edad = edad; }
+    public void setDocumento(String documento) { this.documento = documento; }
 
-    public String getNombre() {
-        return nombre;
-    }
-    public String getApellido() {
-        return apellido;
-    }
-    public int getEdad() {
-        return edad;
-    }
-    public String getDocumento() {
-        return documento;
-    }
-
-    public void setNombre(String nombre) {
-        if(!nombre.isEmpty()) {
-            this.nombre = nombre;
-        }
-    }
-    public void setApellido(String apellido) {
-        if(!apellido.isEmpty()) {
-            this.apellido = apellido;
-        }
-    }
-    public void setEdad(int edad) {
-        if(edad >= 16) {
-            this.edad = edad;
-        }
-    }
-    public void setDocumento(String documento) {
-        this.documento = documento;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Persona persona = (Persona) obj;
+        return Objects.equals(documento, persona.documento);
     }
 
-    public int hashCode(){
-        return Objects.hash(documento);
-    }
-    
+    public int hashCode() { return Objects.hash(documento); }
+ 
     public String toString() {
         return "Persona: " + nombre + " " + apellido + ", Edad: " + edad + ", Documento: " + documento;
     }
-
 }
